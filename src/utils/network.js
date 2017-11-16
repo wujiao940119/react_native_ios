@@ -17,9 +17,12 @@ function shareSleepNetwork(api, data, method, complete){
             headers: headers
         }
     }
-    fetch('https://www.xiangshuispace.com/api/'+api, requestConstuctor).then((response) => {
+    //'http://dev.xiangshuispace.com:18083/api/'
+    fetch('http://dev.xiangshuispace.com:18083/api/'+api, requestConstuctor).then((response) => {
         complete(response);
     }).catch((error)=> {
+        console.log('error====================');
+        console.log(error)
         alert(error)
     })
 }
