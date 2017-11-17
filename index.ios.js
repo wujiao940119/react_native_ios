@@ -1,42 +1,17 @@
 import React, { Component } from 'react';
 import { AppRegistry, FlatList, StyleSheet, Text, View } from 'react-native';
 import Root from './src/root';
-import {PixelRatio,Dimensions} from 'react-native';
-const pt2px = pt=>PixelRatio.getPixelSizeForLayoutSize(pt);
-const px2pt = px=>PixelRatio.roundToNearestPixel(px);
-
-let designSize = {width:750,height:1336};
-
-let pxRatio = PixelRatio.get();
-let win_width = Dimensions.get("window").width;
-let win_height = Dimensions.get("window").height;
-
-let width = pt2px(win_width);
-let height = pt2px(win_height);
-
-let design_scale = designSize.width/width;
-height = height*design_scale
-
-let scale = 1/pxRatio/design_scale;
-
-const styles={
-  container: {
-        width:width,
-        height:height,
-        transform:[{translateX:-width*.5},
-                    {translateY:-height*.5},
-                    {scale:scale},
-                    {translateX:width*.5},
-                    {translateY:height*.5}]
-    },
-}
-console.log('test22222222')
-console.log(styles);
+import {setSpText,scaleSize} from './src/utils/screen';
+import {Dimensions,PixelRatio} from 'react-native';
+console.log('lalla======')
 
 export default class MyApp extends Component {
   render() {
     return (
-      <View sytle={styles.container}>
+      <View>
+        <View style={{width:scaleSize(375),height:300,backgroundColor:'#ff0'}}></View>
+        <Text style={{fontSize: 30}}>没适配,本机像素：{PixelRatio.get()}</Text>
+        <Text style={{fontSize: setSpText(30)}}>已适配</Text>
         <Root/>
       </View>
     );

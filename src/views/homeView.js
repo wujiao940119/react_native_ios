@@ -4,6 +4,7 @@ import FadeInView from '../components/FadeInView';
 import {shareSleepNetwork} from '../utils/network';
 import {convert_BD09_To_GCJ02} from '../utils/util';
 import Swiper from 'react-native-swiper';
+import {setSpText,scaleSize} from '../utils/screen';
 
 var styles = StyleSheet.create({
   wrapper: {
@@ -37,7 +38,7 @@ var styles = StyleSheet.create({
       height: 200
   },
   test: {
-      width: 300,
+      width: scaleSize(375),
       height:300,
       backgroundColor: '#92bbd9'
   }
@@ -91,7 +92,9 @@ export default class HomeView extends Component {
         
         return (
             
-            <View style={styles.test}></View>
+            <View>
+                <Text style={{fontSize:30,color: '#f00'}}>测试lalalalla</Text>
+            </View>
         );
         
     }
